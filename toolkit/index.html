@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kobbix Toolkit</title>
+<meta name="description" content="Free tools from Kobbix: the Hustle Math Calculator, the AI Hustle Cheat Sheet and a Student AI Prompt Pack.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700;800&family=Lora:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0D0C;--card:#141816;--line:#26302B;--text:#F4F4F0;--soft:#A9B1AC;--g:#19C37D;--r:#FF5A3C}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Lora,Georgia,serif;font-size:17px;line-height:1.5;
+ background-image:radial-gradient(circle at 85% 0%,rgba(25,195,125,.18),transparent 40%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:auto,40px 40px,40px 40px;min-height:100vh}
+.wrap{max-width:640px;margin:0 auto;padding:28px 16px 60px}
+.logo{font-family:Jost,sans-serif;font-weight:800;font-size:30px;letter-spacing:-1px}.logo span{color:var(--g)}
+.k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--g);text-transform:uppercase}
+h1{font-family:Jost,sans-serif;font-weight:800;font-size:38px;line-height:1.05;margin:18px 0 10px;letter-spacing:-.5px}
+h2{font-family:Jost,sans-serif;font-weight:700;font-size:26px;line-height:1.1;margin:0 0 8px}
+h3{font-family:Jost,sans-serif;font-weight:700;font-size:20px;margin:0 0 4px}
+.g{color:var(--g)}.soft{color:var(--soft)}
+.tabs{display:flex;gap:8px;margin:22px 0 18px;flex-wrap:wrap}
+.tab{flex:1 1 30%;min-width:150px;background:var(--card);border:2px solid var(--line);color:var(--text);border-radius:14px;padding:12px;text-align:left;cursor:pointer;font-family:Jost,sans-serif;font-weight:700;font-size:16px}
+.tab small{display:block;font-family:Lora,serif;font-weight:400;color:var(--soft);font-size:13px;margin-top:2px}
+.tab[aria-selected=true]{border-color:var(--g);box-shadow:0 0 0 1px var(--g),0 0 24px rgba(25,195,125,.25)}
+.panel{display:none}.panel.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0}
+label{display:block;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--soft);margin:12px 0 6px}
+select,input{width:100%;background:#0E1211;border:2px solid var(--line);border-radius:12px;color:var(--text);font-size:18px;padding:12px;font-family:'Space Mono',monospace}
+select:focus,input:focus{outline:none;border-color:var(--g)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.big{font-family:Jost,sans-serif;font-weight:800;font-size:64px;line-height:1;color:var(--g);text-shadow:0 0 30px rgba(25,195,125,.4);margin:6px 0}
+.stat{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:8px 0;font-family:'Space Mono',monospace;font-size:15px}
+.stat:last-child{border:0}
+.bar{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:12px 0 4px}
+.bar .y{background:var(--g)}.bar .p{background:var(--r)}
+.note{font-size:13px;color:var(--soft);margin-top:10px}
+.verdict{display:inline-block;font-family:Jost,sans-serif;font-weight:800;font-size:13px;letter-spacing:1px;padding:3px 10px;border:2px solid var(--r);color:var(--r);border-radius:8px;transform:rotate(-3deg);margin-bottom:8px}
+.kv{font-family:'Space Mono',monospace;font-size:14px;margin:3px 0}.kv b{color:var(--g)}
+.prompt{position:relative;background:#0E1211;border:1px solid var(--line);border-radius:12px;padding:12px 12px 40px;margin:10px 0;font-size:15px}
+.copy{position:absolute;right:10px;bottom:8px;background:var(--g);color:#0B0D0C;border:0;border-radius:8px;padding:5px 10px;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;cursor:pointer}
+.cat{margin-top:22px}
+footer{margin-top:36px;font-size:13px;color:var(--soft);border-top:1px solid var(--line);padding-top:16px}
+a{color:var(--g)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">kobbi<span>x</span></div>
+  <div class="k" style="margin-top:14px">Free for Kobbix readers</div>
+  <h1>Your <span class="g">toolkit.</span> Pick one.</h1>
+  <p class="soft">We test the AI hype. These are the tools we use to do it.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-p="calc">Hustle Math<small>How many sales you'd really need</small></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="cheat">Cheat Sheet<small>6 AI hustles, real numbers</small></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="prompts">Prompt Pack<small>25 prompts for school &amp; side projects</small></button>
+  </div>
+
+  <!-- CALCULATOR -->
+  <section class="panel on" id="calc">
+    <h2>Hustle Math <span class="g">Calculator</span></h2>
+    <p class="soft">Pick a platform, enter your price and goal. See what the platform takes and how many sales it really takes.</p>
+    <div class="card">
+      <label for="plat">Platform</label>
+      <select id="plat">
+        <option value="etsy">Etsy (digital)</option>
+        <option value="fiverr">Fiverr gig</option>
+        <option value="kdp">Amazon KDP ebook</option>
+        <option value="adobe">Adobe Stock image</option>
+        <option value="custom">Other platform</option>
+      </select>
+      <div class="row">
+        <div><label for="price" id="priceLbl">Your price ($)</label><input id="price" type="number" inputmode="decimal" min="0" step="0.01" value="5"></div>
+        <div><label for="goal">Goal per week ($)</label><input id="goal" type="number" inputmode="decimal" min="0" step="1" value="500"></div>
+      </div>
+      <div id="extra"></div>
+    </div>
+    <div class="card" aria-live="polite">
+      <div class="k">You need</div>
+      <div class="big" id="perWeek">123</div>
+      <div style="font-family:Jost;font-weight:700;font-size:20px">sales a week · <span class="g" id="perDay">about 18 a day</span></div>
+      <div class="bar"><div class="y" id="barY"></div><div class="p" id="barP"></div></div>
+      <div class="stat"><span>You keep per sale</span><span id="keep">$4.07</span></div>
+      <div class="stat"><span>Platform takes</span><span id="take">$0.93</span></div>
+      <p class="note" id="how"></p>
+    </div>
+    <p class="note">Fees checked Nov 8–9, 2026 on each platform's own pages. Fees change, so check before you start. Taxes, ads and your time aren't included. Not financial advice.</p>
+  </section>
+
+  <!-- CHEAT SHEET -->
+  <section class="panel" id="cheat">
+    <h2>AI Hustle <span class="g">Cheat Sheet</span></h2>
+    <p class="soft">Every number comes from the platform's own rules. Checked November 2026.</p>
+    <div class="card"><span class="verdict">HYPE</span><h3>AI art on Etsy</h3>
+      <p class="kv">$5 printable → you keep <b>about $4.07</b></p><p class="kv">$500/week = <b>123 sales</b> (~18/day)</p>
+      <p class="kv">Rule: allowed, but say it's AI in the listing</p><p class="kv">Age: 18+ (13–17 only through a parent's account)</p></div>
+    <div class="card"><span class="verdict">HYPE</span><h3>AI ebooks on Amazon KDP</h3>
+      <p class="kv">$2.99 ebook at 70% → <b>about $2.05</b> a sale</p><p class="kv">70% only for $2.99–$12.99 on Amazon.com</p>
+      <p class="kv">Rule: disclose AI-generated text or images, even if you edited a lot</p></div>
+    <div class="card"><span class="verdict">HYPE</span><h3>Faceless AI YouTube</h3>
+      <p class="kv">Before ad money: <b>1,000 subs</b> + 4,000 watch hours (or 10M Shorts views in 90 days)</p>
+      <p class="kv">Rule: slideshows/scrolling text with little commentary can't be monetized (since Jul 2025)</p></div>
+    <div class="card"><span class="verdict">HYPE</span><h3>Copy-paste ChatGPT on Fiverr</h3>
+      <p class="kv">$5 gig → you keep <b>$4</b> (Fiverr keeps 20%)</p><p class="kv">14-day wait before you can cash out</p>
+      <p class="kv">Rule: unmodified AI output doesn't meet Fiverr's standards</p><p class="kv">Age: 18+ (13–17 only through a parent's account)</p></div>
+    <div class="card"><span class="verdict">HYPE</span><h3>AI images on Adobe Stock</h3>
+      <p class="kv">About <b>$0.99</b> per download (Adobe's own example, 33% royalty)</p><p class="kv">$500/week = <b>506 downloads</b> (~72/day)</p>
+      <p class="kv">Rule: check "Created using generative AI tools"; no real people or artist names</p><p class="kv">Age: 18+</p></div>
+    <div class="card"><span class="verdict">HYPE</span><h3>AI songs on Spotify</h3>
+      <p class="kv">A track earns $0 until <b>1,000 streams</b> in 12 months</p><p class="kv">No fixed per-stream rate</p>
+      <p class="kv">Likely-AI tracks: <b>10×</b> more likely to miss the bar (Spotify, Oct 2026)</p></div>
+    <p class="note">What's real across all six: the money comes from real skill, real effort and real customers, with AI as a helper. Not financial advice.</p>
+  </section>
+
+  <!-- PROMPTS -->
+  <section class="panel" id="prompts">
+    <h2>Student AI <span class="g">Prompt Pack</span></h2>
+    <p class="soft">Copy, paste, fill in the [brackets]. Built to help you learn and work faster, not to do your homework for you. Check your school's AI rules first.</p>
+    <div id="plist"></div>
+  </section>
+
+  <footer>
+    <p><b>Kobbix</b> · We test the AI hype. You get the 5-minute version.</p>
+    <p>How we make this: AI helps us research and draft. A human checks every number and source. Nothing here is financial advice. This page collects no data.</p>
+  </footer>
+</div>
+<script>
+// tabs
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===t.dataset.p));
+}));
+// calculator
+const $=id=>document.getElementById(id);
+function extra(){
+  const p=$('plat').value;let h='';
+  if(p==='kdp')h='<label for="mb">Ebook file size (MB)</label><input id="mb" type="number" inputmode="decimal" min="0" step="0.1" value="0.4">';
+  if(p==='custom')h='<label for="cut">Platform keeps (%)</label><input id="cut" type="number" inputmode="decimal" min="0" max="100" step="1" value="20">';
+  $('extra').innerHTML=h;$('priceLbl').textContent=p==='adobe'?'Price buyer pays per image ($)':'Your price ($)';
+  if(p==='adobe'&&$('price').dataset.touched!=='1')$('price').value='3.00';
+  if(p!=='adobe'&&$('price').dataset.touched!=='1')$('price').value=p==='kdp'?'2.99':'5';
+  document.querySelectorAll('#extra input').forEach(i=>i.addEventListener('input',calc));calc();
+}
+function calc(){
+  const p=$('plat').value,price=Math.max(0,+$('price').value||0),goal=Math.max(0,+$('goal').value||0);let keep=0,how='';
+  if(p==='etsy'){keep=price-0.20-price*0.065-(price*0.03+0.25);how='Etsy: $0.20 listing fee + 6.5% transaction fee + about 3% + $0.25 payment processing (US). Source: Etsy Fees & Payments Policy.';}
+  if(p==='fiverr'){keep=price*0.80;how='Fiverr: freelancers receive 80% of each order. Gigs start at $5. Earnings clear after 14 days. Source: Fiverr Help Center.';}
+  if(p==='kdp'){const mb=Math.max(0,+(($('mb')||{}).value)||0);if(price>=2.99&&price<=12.99){keep=0.70*(price-0.15*mb);how='KDP 70% royalty (price $2.99–$12.99 on Amazon.com) minus a $0.15/MB delivery fee. Source: KDP eBook royalties.';}else{keep=0.35*price;how='Outside $2.99–$12.99, KDP pays 35%. Source: KDP list price requirements.';}}
+  if(p==='adobe'){keep=price*0.33;how='Adobe Stock pays contributors 33% of the net price per licensed image. Adobe\'s example: a $29.99 plan for 10 images = about $0.99 per image. Source: Adobe Stock royalty rates.';}
+  if(p==='custom'){const cut=Math.min(100,Math.max(0,+(($('cut')||{}).value)||0));keep=price*(1-cut/100);how='Custom: the platform keeps '+cut+'% of each sale.';}
+  keep=Math.max(0,keep);const take=Math.max(0,price-keep);
+  $('keep').textContent='$'+keep.toFixed(2);$('take').textContent='$'+take.toFixed(2);
+  const pct=price>0?keep/price*100:0;$('barY').style.width=pct+'%';$('barP').style.width=(100-pct)+'%';
+  if(keep<=0){$('perWeek').textContent='—';$('perDay').textContent='you keep $0 per sale';}
+  else{const w=Math.ceil(goal/keep);$('perWeek').textContent=w.toLocaleString();$('perDay').textContent='about '+Math.round(w/7).toLocaleString()+' a day';}
+  $('how').textContent=how;
+}
+$('plat').addEventListener('change',extra);
+$('price').addEventListener('input',e=>{e.target.dataset.touched='1';calc()});
+$('goal').addEventListener('input',calc);extra();
+// open a tab from the link, e.g. #prompts
+const hp=location.hash.slice(1);const ht=document.querySelector('.tab[data-p="'+hp+'"]');if(ht)ht.click();
+// prompts
+const P={
+'Studying':[
+'Quiz me on [topic] with 10 questions, one at a time. Wait for my answer before giving the next one, and explain anything I get wrong.',
+'Explain [concept] like I\'m 15, then again like I\'m in college. Then give me one real-world example.',
+'Here are my class notes: [paste]. Turn them into a one-page study guide with the 5 most likely test questions.',
+'Make me a study plan for [exam] on [date]. I have [X] hours a day. Put the hardest topics first.',
+'I keep getting [type of problem] wrong. Here\'s my work: [paste]. Find where my thinking goes wrong. Don\'t just give the answer.',
+'Make 15 flashcards from this text: [paste]. Question on the front, short answer on the back.',
+'Give me 3 memory tricks to remember [list or formula].'],
+'Writing (your words, sharper)':[
+'Here\'s my essay intro: [paste]. Give me 3 ways to make the first sentence stronger. Don\'t rewrite the whole thing.',
+'Read my paragraph: [paste]. What\'s the weakest sentence and why?',
+'I have to write about [topic]. Ask me 5 questions that help me figure out what I actually think.',
+'Check this for grammar and clarity only. Keep my voice: [paste].',
+'Turn my messy outline into a clear order of points. Don\'t add new ideas: [paste].'],
+'Emails & life admin':[
+'Write a short, polite email to my teacher/professor asking for [extension / help / meeting]. Reason: [reason]. Keep it under 100 words.',
+'Help me reply to this message so I sound professional but friendly: [paste].',
+'I have $[amount] for the month. Here are my costs: [list]. Make a simple weekly budget and flag anything I can cut.',
+'I\'m applying for [job]. Here\'s my experience: [list]. Turn it into 4 strong resume bullet points. Don\'t invent anything.',
+'Give me 10 likely interview questions for [job] and what a strong answer should include.'],
+'Side projects (honest version)':[
+'I want to sell [thing] on [platform]. List every fee and rule I should check on the platform\'s own site before I start.',
+'Here\'s my side hustle idea: [idea]. Play a skeptical customer. Give me 5 reasons you wouldn\'t buy.',
+'Help me price [product/service]. Ask me about my costs and time first, then suggest a range and explain it.',
+'Write 5 short hooks for a TikTok about [my project]. Make them specific, no clickbait.',
+'Make a 4-week plan to test [idea] with less than $[amount]. What would prove it works or doesn\'t?',
+'Here are my customer messages: [paste]. What are people confused about, and what should I fix first?',
+'I made $[X] from [hustle] this month. Help me track income and costs in a simple table so I\'m ready for taxes.',
+'What would I need a parent or adult to help with if I\'m under 18 and want to sell [thing] online?']};
+let html='';for(const c in P){html+='<div class="cat"><div class="k">'+c+'</div>';P[c].forEach((t,i)=>{html+='<div class="prompt"><span>'+t.replace(/</g,'&lt;')+'</span><button class="copy">Copy</button></div>'});html+='</div>'}
+$('plist').innerHTML=html;
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const t=b.previousElementSibling.textContent;
+  try{await navigator.clipboard.writeText(t);b.textContent='Copied!';}catch(e){b.textContent='Select & copy';}
+  setTimeout(()=>b.textContent='Copy',1500);
+}));
+</script>
+</body>
+</html>
