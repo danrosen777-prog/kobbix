@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kobbix · AI Study Kit</title>
+<meta name="description" content="The free Kobbix AI Study Kit: 12 prompts that turn any notes into a practice test, a 7-day exam plan builder, and the fine print on free AI study tools.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;700;800&family=Lora:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0D0C;--card:#141816;--line:#26302B;--text:#F4F4F0;--soft:#A9B1AC;--g:#19C37D;--r:#FF5A3C}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Lora,Georgia,serif;font-size:17px;line-height:1.5;min-height:100vh;
+ background-image:radial-gradient(circle at 85% 0%,rgba(25,195,125,.18),transparent 40%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:auto,40px 40px,40px 40px}
+.wrap{max-width:640px;margin:0 auto;padding:28px 16px 60px}
+.logo{font-family:Jost,sans-serif;font-weight:800;font-size:30px;letter-spacing:-1px}.logo span{color:var(--g)}
+.k{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:var(--g);text-transform:uppercase}
+h1{font-family:Jost,sans-serif;font-weight:800;font-size:40px;line-height:1.02;margin:14px 0 12px;letter-spacing:-.5px}
+h2{font-family:Jost,sans-serif;font-weight:800;font-size:28px;line-height:1.08;margin:6px 0 8px}
+.g{color:var(--g)}.soft{color:var(--soft)}a{color:var(--g)}
+.part{margin-top:44px;border-top:2px solid var(--text);padding-top:14px}
+.steps{list-style:none;padding:0;margin:18px 0 0;border:1px solid var(--line);background:var(--card)}
+.steps li{display:flex;gap:12px;padding:12px 14px;border-bottom:1px dashed var(--line);font-size:16px}
+.steps li:last-child{border:0}
+.steps b{font-family:'Space Mono',monospace;color:var(--g);flex:none}
+.jump{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:18px;border:1px solid var(--line)}
+.jump a{padding:12px 8px;text-align:center;text-decoration:none;color:var(--text);font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;border-right:1px solid var(--line);background:var(--card)}
+.jump a:last-child{border:0}.jump a b{display:block;font-family:Jost,sans-serif;font-size:24px;color:var(--g);letter-spacing:0}
+.cat{margin-top:26px}
+.q{position:relative;background:#0E1211;border:1px solid var(--line);border-left:3px solid var(--g);padding:12px 12px 46px 14px;margin:10px 0}
+.q .n{font-family:'Space Mono',monospace;font-size:12px;color:var(--g);letter-spacing:1px}
+.q h3{font-family:Jost,sans-serif;font-weight:700;font-size:19px;margin:2px 0 6px}
+.q p{font-family:'Space Mono',monospace;font-size:14px;line-height:1.5;color:#DDE2DE}
+.copy,.btn{background:var(--g);color:#0B0D0C;border:0;padding:8px 14px;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;cursor:pointer}
+.copy{position:absolute;right:10px;bottom:9px}
+label{display:block;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--soft);margin:14px 0 6px}
+input,textarea{width:100%;background:#0E1211;border:2px solid var(--line);color:var(--text);font-size:17px;padding:12px;font-family:'Space Mono',monospace;border-radius:0}
+input:focus,textarea:focus{outline:none;border-color:var(--g)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{width:100%;margin-top:16px;padding:14px;font-size:15px}
+.plan{margin-top:16px;border:1px solid var(--line);background:var(--card)}
+.day{display:grid;grid-template-columns:86px 1fr;border-bottom:1px dashed var(--line)}
+.day:last-child{border:0}
+.day .d{padding:12px 10px;font-family:'Space Mono',monospace;font-size:12px;color:var(--g);border-right:1px dashed var(--line)}
+.day .d b{display:block;font-family:Jost,sans-serif;font-size:22px;color:var(--text)}
+.day .t{padding:12px}.day .t b{font-family:Jost,sans-serif;font-size:17px;display:block}
+.day .t span{font-size:15px;color:var(--soft)}
+.day.exam .d b{color:var(--g)}
+.fp{margin-top:14px;border:1px solid var(--line);background:var(--card)}
+.fp div{display:grid;grid-template-columns:120px 1fr;border-bottom:1px dashed var(--line)}
+.fp div:last-child{border:0}
+.fp b{padding:12px;font-family:Jost,sans-serif;font-size:17px;border-right:1px dashed var(--line)}
+.fp span{padding:12px;font-size:15px}
+.fp em{font-style:normal;font-family:'Space Mono',monospace;font-weight:700;color:var(--g)}
+.fp em.r{color:var(--r)}
+.note{font-size:13px;color:var(--soft);margin-top:10px}
+.warn{margin-top:18px;border:2px solid var(--r);padding:12px 14px;font-size:15px}
+.warn b{font-family:'Space Mono',monospace;color:var(--r);font-size:12px;letter-spacing:1px;display:block;margin-bottom:2px}
+footer{margin-top:44px;font-size:13px;color:var(--soft);border-top:1px solid var(--line);padding-top:16px}
+footer p{margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">kobbi<span>x</span></div>
+  <div class="k" style="margin-top:18px">AI Study Kit · Exam week</div>
+  <h1>Turn any notes into a <span class="g">practice test.</span></h1>
+  <p class="soft">Re-reading feels like studying. Testing yourself works better. This kit makes any free AI chatbot quiz you on your own notes.</p>
+
+  <ol class="steps">
+    <li><b>01</b><span>Open any AI chatbot you're allowed to use (ages are in Part 3).</span></li>
+    <li><b>02</b><span>Tap <b style="color:var(--text);font-family:inherit">Copy</b> on a prompt and paste it in.</span></li>
+    <li><b>03</b><span>Swap the [brackets] for your class, topic or notes.</span></li>
+  </ol>
+
+  <nav class="jump">
+    <a href="#prompts"><b>12</b>prompts</a>
+    <a href="#plan"><b>7</b>day plan</a>
+    <a href="#fineprint"><b>4</b>age rules</a>
+  </nav>
+
+  <div class="warn"><b>READ THIS FIRST</b>AI gets facts wrong. If an answer surprises you, check it against your notes or textbook. And check your school's AI rules: this kit is for studying, not for handing in AI work as yours.</div>
+
+  <section class="part" id="prompts">
+    <div class="k">Part 1</div>
+    <h2>The 12 prompts</h2>
+    <div id="plist"></div>
+  </section>
+
+  <section class="part" id="plan">
+    <div class="k">Part 2</div>
+    <h2>7-day exam plan builder</h2>
+    <p class="soft">Type your exam in. Get a day-by-day plan that tells you which prompt to use when. Nothing you type leaves your phone.</p>
+    <label for="subj">Class or exam</label>
+    <input id="subj" placeholder="Biology final" maxlength="40">
+    <label for="topics">Topics, one per line</label>
+    <textarea id="topics" rows="5" placeholder="Cell structure&#10;Photosynthesis&#10;Genetics&#10;Evolution"></textarea>
+    <div class="row">
+      <div><label for="date">Exam date</label><input id="date" type="date"></div>
+      <div><label for="mins">Minutes a day</label><input id="mins" type="number" inputmode="numeric" value="40" min="10" max="240"></div>
+    </div>
+    <button class="btn" id="build">Build my plan</button>
+    <div id="out"></div>
+  </section>
+
+  <section class="part" id="fineprint">
+    <div class="k">Part 3</div>
+    <h2>The fine print on free AI study tools</h2>
+    <p class="soft">The stuff nobody reads. US rules, read on each company's own pages Nov 15, 2026.</p>
+    <div class="fp">
+      <div><b>ChatGPT</b><span><em>13+</em> Under 18, you need a parent or guardian's permission. That's in OpenAI's terms.</span></div>
+      <div><b>Gemini</b><span><em>13+</em> You need a Google account you run yourself. In the US that starts at 13.</span></div>
+      <div><b>Gemini Notebook</b><span><em>13+</em> Used to be called NotebookLM. Same Google account rule as Gemini. It only answers from what you upload. Free plan: 100 notebooks, 50 sources in each.</span></div>
+      <div><b>Claude</b><span><em class="r">18+</em> Adults only. If you're under 18 you can't use it, even with a parent's OK.</span></div>
+    </div>
+    <p class="note">Free plans all have usage limits, and they change often. If a tool says you've hit your limit, wait for the reset or switch to another one. You don't need to pay for anything in this kit. Rules can change: the tool's own terms page is the final word.</p>
+  </section>
+
+  <footer>
+    <p><b>Kobbix</b> · We test the AI hype. You get the 5-minute version.</p>
+    <p>Why testing yourself: a 2013 review of ten study techniques (Dunlosky and colleagues, Psychological Science in the Public Interest) rated practice testing and spreading study out over days as the most useful, and re-reading and highlighting as low.</p>
+    <p>How we make this: AI helps us research and draft. A human checks every fact and source. No tool paid to be here. This page collects no data.</p>
+  </footer>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const P=[
+['Test yourself',[
+ ['Practice test from my notes','Here are my notes for [class]: [paste notes]. Make a 15-question practice test from ONLY these notes. Mix multiple choice, short answer and one long question. Don\'t show the answers until I say "grade me". Then grade me and explain every one I missed.'],
+ ['One question at a time','Quiz me on [topic], one question at a time. Wait for my answer. If I\'m wrong, give me a hint first, not the answer. Make it harder when I get 3 right in a row.'],
+ ['Guess the exam','Here is my study guide: [paste]. Act like my teacher writing the exam. Which 10 questions are most likely to be on it, and why? Then quiz me on them one at a time.']]],
+['Find your weak spots',[
+ ['Rank my topics','My exam covers: [list topics]. Ask me 2 quick questions per topic, one at a time, to find out which ones I really know. Then rank the topics from weakest to strongest so I know where to spend my time.'],
+ ['Explain it back','I\'m going to explain [topic] in my own words. Tell me what I got wrong, what I left out, and what I only half understand. Don\'t be nice about it. Here goes: [your explanation]'],
+ ['Fix my mistakes','Here are the questions I got wrong: [paste]. Find the pattern. What do I actually not understand? Give me 5 new questions that hit that exact gap.']]],
+['Actually understand it',[
+ ['Explain it 3 ways','Explain [concept] three ways: like I\'m 12, with a real-life example, and the way a textbook would. Then ask me one question to check I got it.'],
+ ['Step by step, I go first','Walk me through this problem one step at a time: [problem]. After each step, stop and ask me what comes next. Don\'t give the final answer until I try.'],
+ ['One-page cram sheet','Turn these notes into a one-page cheat sheet: [paste notes]. Only the 10 things most likely to be tested, in short lines. Then make 10 flashcards with a question on one side and the answer on the other.'],
+ ['Make it stick','I keep forgetting these: [terms, dates or formulas]. Give me a memory trick for each one, then test me on them in random order.']]],
+['Essays and the plan',[
+ ['Grade my essay, don\'t write it','Here\'s my essay and the rubric: [paste both]. Don\'t rewrite anything. Grade it against the rubric, point to the 3 weakest spots, and ask me questions that help me fix them myself.'],
+ ['Build my study plan','My exam on [subject] is in [number] days. I have [minutes] minutes a day. Topics: [list]. Build a day-by-day plan that tests me more than it makes me re-read, and keeps the day before the exam light.']]]
+];
+let n=0,html='';
+P.forEach(([c,list])=>{html+='<div class="cat"><div class="k">'+c+'</div>';
+ list.forEach(([t,p])=>{n++;html+='<div class="q"><div class="n">Q'+String(n).padStart(2,'0')+'</div><h3>'+t+'</h3><p>'+p.replace(/</g,'&lt;')+'</p><button class="copy">Copy</button></div>'});
+ html+='</div>'});
+$('plist').innerHTML=html;
+function wire(b,get){b.addEventListener('click',async()=>{const o=b.textContent;
+ try{await navigator.clipboard.writeText(get());b.textContent='Copied!'}catch(e){b.textContent='Select & copy'}
+ setTimeout(()=>b.textContent=o,1500)})}
+document.querySelectorAll('.copy').forEach(b=>wire(b,()=>b.previousElementSibling.textContent));
+
+// 7-day plan (runs only in this browser, nothing is sent anywhere)
+function buildPlan(subj,topics,exam,mins,today){
+  const DAY=864e5,days=[];
+  const left=Math.round((exam-today)/DAY);
+  if(isNaN(left)||left<1)return null;
+  const span=Math.min(left,7);
+  // templates for the last 3 days before the exam, then learning days fill the rest
+  const tail=[
+   ['Light review only','Skim your cram sheet, do a 10-question quiz (Q02), then stop. Sleep beats one more hour.'],
+   ['Fix what you missed','Paste yesterday\'s wrong answers into Q06. Re-test only those gaps.'],
+   ['Full practice test','No notes. Use Q01 on everything, then Q03 for likely exam questions. Save what you got wrong.']];
+  const learnN=Math.max(span-tail.length-1,0);
+  const out=[];
+  let d=span;
+  if(span>=2){out.push([d,'Find your weak spots','Run Q04 on your topic list. Put your weakest topics first for the next days.']);d--}
+  const per=learnN?Math.ceil(topics.length/learnN):0;
+  for(let i=0;i<learnN;i++,d--){
+    const chunk=topics.slice(i*per,(i+1)*per);
+    const name=chunk.length?chunk.join(', '):'Catch up on your weakest topic';
+    out.push([d,name,'Q07 for anything confusing, then Q02 to quiz yourself. End with Q05: explain it back.']);
+  }
+  const useTail=d>=3?[tail[2],tail[1],tail[0]]:d==2?[tail[2],tail[0]]:[tail[0]];
+  useTail.forEach(t=>{out.push([d,t[0],t[1]]);d--});
+  return {left,span,rows:out.map(([k,a,b])=>({k,date:new Date(exam-k*DAY),a,b}))};
+}
+function fmt(dt){return dt.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
+(function(){const t=new Date();t.setDate(t.getDate()+7);$('date').value=t.toISOString().slice(0,10)})();
+$('build').addEventListener('click',()=>{
+  const subj=($('subj').value||'your exam').trim();
+  const topics=$('topics').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  const mins=Math.max(10,parseInt($('mins').value)||40);
+  const [y,m,dd]=$('date').value.split('-').map(Number);
+  const exam=new Date(y,m-1,dd),now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const p=buildPlan(subj,topics,exam,mins,today);
+  if(!p){$('out').innerHTML='<p class="note" style="color:var(--r)">Pick an exam date after today.</p>';return}
+  const esc=s=>s.replace(/</g,'&lt;');
+  let h='<div class="plan">',txt='Kobbix 7-day plan: '+subj+'\n';
+  p.rows.forEach(r=>{h+='<div class="day"><div class="d">'+fmt(r.date)+'<b>'+r.k+(r.k==1?' day':' days')+'</b></div><div class="t"><b>'+esc(r.a)+'</b><span>'+mins+' min. '+esc(r.b)+'</span></div></div>';
+    txt+=fmt(r.date)+' ('+mins+' min): '+r.a+'. '+r.b+'\n'});
+  h+='<div class="day exam"><div class="d">'+fmt(exam)+'<b>EXAM</b></div><div class="t"><b>'+esc(subj)+'</b><span>5-minute warm-up: 3 easy questions from Q02. Then go.</span></div></div></div>';
+  txt+=fmt(exam)+': EXAM. 5-minute warm-up, then go.';
+  if(p.left>7)h='<p class="note">Your exam is '+p.left+' days away. This plan starts 7 days before it.</p>'+h;
+  if(p.left<4)h='<p class="note">Short on time, so this is the squeezed version: test, fix, rest.</p>'+h;
+  h+='<button class="btn" id="cp">Copy my plan</button>';
+  $('out').innerHTML=h;wire($('cp'),()=>txt);
+});
+</script>
+</body>
+</html>
